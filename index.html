@@ -11,23 +11,23 @@
 	
 	<div id="game">
 		<h2>Pointless Waste</h2>
-		<button v-on:click="addWaste">Produce {{ (pointlessWasteMultiplier / 1000).toFixed(3) }} Pointless Waste</button>
-		<p>You have {{ pointlessWaste.toFixed(3) }} Pointless Waste.</p>
+		<button v-on:click="addWaste">Produce {{ (pointlessWasteMultiplier / 100).toFixed(2) }} Pointless Waste</button>
+		<p>You have {{ pointlessWaste.toFixed(2) }} Pointless Waste.</p>
 		<h2 v-if="this.stage.id >= gameStage.pointlessShop.id">Pointless Shop</h2>
 		<h4 v-if="this.stage.id >= gameStage.pointlessShop.id">Multiplier</h4>
 		<button v-on:click="upgradeMultiplier" v-if="this.stage.id >= gameStage.pointlessShop.id" :disabled="this.pointlessWaste < this.multiplierCost">Get Pointless Waste Multiplier</button>
-		<p v-if="this.stage.id >= gameStage.pointlessShop.id">Multiplier: {{ pointlessWasteMultiplier.toFixed(2) }}x<br />
+		<p v-if="this.stage.id >= gameStage.pointlessShop.id">Multiplier: {{ pointlessWasteMultiplier.toFixed(1) }}x<br />
 		Gives {{ pointlessWasteBoostAmount.toFixed(1) }}x bonus to Pointless Waste production.<br />
-		Cost: {{ multiplierCost.toFixed(3) }} Pointless Waste.</p>
+		Cost: {{ multiplierCost.toFixed(2) }} Pointless Waste.</p>
 		<h4 v-if="this.stage.id >= gameStage.droneEra.id">Waste Drones</h4>
 		<button v-on:click="upgradeDrone" v-if="this.stage.id >= gameStage.droneEra.id" :disabled="this.pointlessWaste < this.droneCost">Get Waste Drone</button>
 		<p v-if="this.stage.id >= gameStage.droneEra.id">Drones: {{ wasteDrones }}<br />
-		Your Drones produce {{ (pointlessWasteMultiplier / 1000 * wasteDrones).toFixed(3) }} Pointless Waste per second.<br />
-		Cost: {{ droneCost.toFixed(3) }} Pointless Waste.</p>
+		Your Drones produce {{ (pointlessWasteMultiplier / 100 * wasteDrones).toFixed(2) }} Pointless Waste per second.<br />
+		Cost: {{ droneCost.toFixed(2) }} Pointless Waste.</p>
 		<h4 v-if="this.stage.id >= gameStage.lessPointlessWasteland.id">Less Pointless Waste</h4>
 		<button v-on:click="upgradeLessPointlessWaste" v-if="this.stage.id >= gameStage.lessPointlessWasteland.id" :disabled="this.pointlessWaste < this.lessPointlessWasteCost">Get Less Pointless Waste</button>
 		<p v-if="this.stage.id >= gameStage.lessPointlessWasteland.id">You have {{ lessPointlessWaste }} Less Pointless Waste, giving an additional {{ (lessPointlessWaste / 10).toFixed(1) }}x boost whenever you buy another Multiplier.<br />
-		Cost: {{ lessPointlessWasteCost.toFixed(3) }} Pointless Waste.</p>
+		Cost: {{ lessPointlessWasteCost.toFixed(2) }} Pointless Waste.</p>
 		<h2 v-if="this.stage.id >= gameStage.conversion.id">Conversion</h2>
 		<button v-on:click="addEssayPoint" v-if="this.stage.id >= gameStage.conversion.id" :disabled="this.pointlessWaste < this.essayPointCost">Make Pointless Waste into Something Less Pointless.</button>
 		<p v-if="this.essayPoints >= 1">Sometimes, there are things that people want to do but are unable to do them due to their lack of knowledge or skill in the specific subject matter. Sometimes you realize that there’s something that you can put time into complete something faster, but it’s out of reach and is not part of your skillset. This usually happens to just about everyone in the world, and one of the times it impacted me was through the knowledge of computing and computers, to be more specific, coding. About 6 months back, I had an idea for a video game but didn’t have the right skills to complete it by myself. I had planned a lot of things before starting to create the game, and forgot about arguably the most essential tool in creating most softwares or video games; knowing how to code. After a few months, I finally decided to learn to code, and completed courses on the basics of Javascript and HTML. With those two programming languages, I had enough knowledge to create simple web-based games on my local hard drive. Sometimes you need to learn new code to make the code look better, work with fewer problems, or even work at all. If you don’t learn to problem solve, use computers, or organize, then there will be a large amount of difficulty you’ll have to go through to make a successful software or video game. Once you do have those skills, or enough of them, you should still keep improving by creating new projects that require code. There is still a lot I have to learn about code, but these are some skills I’ve picked up along the way of learning code.<br />
