@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+	<title>Waste of Time</title>
+  </head>
+  <body>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	
+	<h1>Waste of Time</h1>
+	
+	<div id="game">
+		<h2>Pointless Waste</h2>
+		<button v-on:click="addWaste">Produce {{ (pointlessWasteMultiplier / 1000).toFixed(3) }} Pointless Waste</button>
+		<p>You have {{ pointlessWaste.toFixed(3) }} Pointless Waste.</p>
+		<h2 v-if="this.stage.id >= gameStage.pointlessShop.id">Pointless Shop</h2>
+		<h4 v-if="this.stage.id >= gameStage.pointlessShop.id">Multiplier</h4>
+		<button v-on:click="upgradeMultiplier" v-if="this.stage.id >= gameStage.pointlessShop.id" :disabled="this.pointlessWaste < this.multiplierCost">Get Pointless Waste Multiplier</button>
+		<p v-if="this.stage.id >= gameStage.pointlessShop.id">Multiplier: {{ pointlessWasteMultiplier.toFixed(2) }}x<br />
+		Gives {{ pointlessWasteBoostAmount.toFixed(1) }}x bonus to Pointless Waste production.<br />
+		Cost: {{ multiplierCost.toFixed(3) }} Pointless Waste.</p>
+		<h4 v-if="this.stage.id >= gameStage.droneEra.id">Waste Drones</h4>
+		<button v-on:click="upgradeDrone" v-if="this.stage.id >= gameStage.droneEra.id" :disabled="this.pointlessWaste < this.droneCost">Get Waste Drone</button>
+		<p v-if="this.stage.id >= gameStage.droneEra.id">Drones: {{ wasteDrones }}<br />
+		Your Drones produce {{ (pointlessWasteMultiplier / 1000 * wasteDrones).toFixed(3) }} Pointless Waste per second.<br />
+		Cost: {{ droneCost.toFixed(3) }} Pointless Waste.</p>
+		<h4 v-if="this.stage.id >= gameStage.lessPointlessWasteland.id">Less Pointless Waste</h4>
+		<button v-on:click="upgradeLessPointlessWaste" v-if="this.stage.id >= gameStage.lessPointlessWasteland.id" :disabled="this.pointlessWaste < this.lessPointlessWasteCost">Get Less Pointless Waste</button>
+		<p v-if="this.stage.id >= gameStage.lessPointlessWasteland.id">You have {{ lessPointlessWaste }} Less Pointless Waste, giving an additional {{ (lessPointlessWaste / 10).toFixed(1) }}x boost whenever you buy another Multiplier.<br />
+		Cost: {{ lessPointlessWasteCost.toFixed(3) }} Pointless Waste.</p>
+		<h2 v-if="this.stage.id >= gameStage.conversion.id">Conversion</h2>
+		<button v-on:click="addEssayPoint" v-if="this.stage.id >= gameStage.conversion.id" :disabled="this.pointlessWaste < this.essayPointCost">Make Pointless Waste into Something Less Pointless.</button>
+		<p v-if="this.essayPoints >= 1">Sometimes, there are things that people want to do but are unable to do them due to their lack of knowledge or skill in the specific subject matter. Sometimes you realize that there’s something that you can put time into complete something faster, but it’s out of reach and is not part of your skillset. This usually happens to just about everyone in the world, and one of the times it impacted me was through the knowledge of computing and computers, to be more specific, coding. About 6 months back, I had an idea for a video game but didn’t have the right skills to complete it by myself. I had planned a lot of things before starting to create the game, and forgot about arguably the most essential tool in creating most softwares or video games; knowing how to code. After a few months, I finally decided to learn to code, and completed courses on the basics of Javascript and HTML. With those two programming languages, I had enough knowledge to create simple web-based games on my local hard drive. Sometimes you need to learn new code to make the code look better, work with fewer problems, or even work at all. If you don’t learn to problem solve, use computers, or organize, then there will be a large amount of difficulty you’ll have to go through to make a successful software or video game. Once you do have those skills, or enough of them, you should still keep improving by creating new projects that require code. There is still a lot I have to learn about code, but these are some skills I’ve picked up along the way of learning code.<br />
+
+There is a lot of trial and error within writing code. If you don’t try to solve problems, your code most likely wouldn’t work very well, or at all. Even with something fully functioning but with some aspects that you dislike, you are always able to make the text formatted better. When I created a game once, there were a few things that didn’t work, such as buying a specific object to make the game produce an in-game currency faster. When it didn’t work, you would be unable to buy that object, but through trial and error and figuring out what code could be used, I ended up fixing it. Problem solving is almost essential in everything you do in the real world. If there’s something that doesn’t work in a situation, you are able to fix it through thinking about it, and if it’s tough, it will add more to your arsenal of knowledge on the subject that the problem applies to.<br />
+
+Another useful thing you can learn from coding is organization. When creating a software, there are usually a large number of files. When I create very simple web-based games, there are only two files I use. One is a file for coding in HTML and the other is for coding in Javascript. If there is a large amount of code in these two areas, then it would be more useful to split one of these files into multiple, if necessary, making the code easier to navigate. You can also indent specific lines of code for better formatting, which is very important in code. Organization is essential in the real world, and if you lack organization, you will be less efficient in what you do. Make sure that you are organized and know how to use your space to the fullest.<br />
+
+Finally, you should learn to use a computer to it’s full advantage. It is by far the most essential skill when it comes to coding. A great part about learning computer use is that basic knowledge of computers is very easy to figure out, even for young children. Of these three skills, computer use is easily the skill you can gain the most knowledge of through coding, as it unlocks many parts of your computer that you might not have known about. You can’t write a functioning line of code without a computer. Computer use is the one of the most important things for the future, as many people and companies are utilizing technology more and more. The majority of the world has access to digital technology and knowing how to use it better makes you know more when the future comes.<br />
+
+Overall, coding can help in many ways other than these three examples. If you have the free time and are interested in learning something, I would recommend coding, as computers and other technology are starting to become more and more used. If you want to be more successful in the future and give yourself a head start for that, maybe you’re interested in the subject, you enjoy STEM, or maybe you want to do something regarding computers that you haven’t been able to do, I’m sure that coding can provide what you want regarding the mentioned things. Thank you for reading.
+
+</p>
+	</div>
+	
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
