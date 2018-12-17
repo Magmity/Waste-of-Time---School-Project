@@ -1,7 +1,7 @@
 const gameStage = {
-	wasteland: { id: 0, goal: 0.01 },
-	pointlessShop: { id: 1, goal: 1 },
-	droneEra: { id: 2, goal: 20 },
+	wasteland: { id: 0, goal: 0.1 },
+	pointlessShop: { id: 1, goal: 10 },
+	droneEra: { id: 2, goal: 100 },
 	lessPointlessWasteland: { id: 3, goal: 829 },
 	conversion: { id: 4, goal: 100000000 },
 	essay: { id: 5, goal: 2147483647 },
@@ -12,7 +12,7 @@ const game = new Vue({
 	data: {
 		pointlessWaste: 0,
 		pointlessWasteMultiplier: 1,
-		pointlessWasteBoostAmount: 1.5,
+		pointlessWasteBoostAmount: 2,
 		multipliersBought: 0,
 		wasteDrones: 0,
 		lessPointlessWaste: 0,
@@ -32,13 +32,13 @@ const game = new Vue({
 	},
 	computed: {
         multiplierCost: function () {
-            return 0.01 * Math.pow(1.7,this.multipliersBought);
+            return 0.1 * Math.pow(1.6,this.multipliersBought);
         },
 		droneCost: function () {
-			return 1 * Math.pow(5,this.wasteDrones);
+			return 10 * Math.pow(5,this.wasteDrones);
 		},
 		lessPointlessWasteCost: function () {
-			return 20 * Math.pow(3.5,this.lessPointlessWaste);
+			return 100 * Math.pow(3.5,this.lessPointlessWaste);
 		},
 		essayPointCost: function () {
 			return 829 * Math.pow(100000,this.essayPoints);
@@ -46,7 +46,7 @@ const game = new Vue({
 	},
 	methods: {
 		addWaste: function () {
-			this.pointlessWaste += this.pointlessWasteMultiplier / 1000;
+			this.pointlessWaste += this.pointlessWasteMultiplier / 100;
 		},
 		upgradeMultiplier: function () {
 			const cost = this.multiplierCost;
